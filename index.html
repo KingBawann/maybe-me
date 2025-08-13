@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <meta charset="UTF-8" />
 <title>Happy Birthday!</title>
 <style>
@@ -14,8 +17,24 @@
         overflow: hidden;
         position: relative;
         height: 100vh;
-    }
-    h1 {
+    }@media (max-width: 600px) {
+  h1 {.text-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+    margin-bottom: 1rem;
+    padding: 0 10px;
+  }
+  body {
+    padding: 10px;
+  }
+}
+
+    h1 {h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);}
+
         font-size: 2.5rem;
         animation: glow 2.5s ease-in-out infinite alternate;
         margin-bottom: 2rem;
@@ -34,13 +53,25 @@
     }
     /* Cake container */
     
-    .cake {
-        margin-top: 30px;
-        position: relative;
-        display: inline-block;
-        animation: bounce 5s ease-in-out infinite;
-        z-index: 10;
-    }
+ .cake {
+  width: 90vw;          /* Make cake container take 90% of viewport width */
+  max-width: 300px;     /* But no wider than 300px on large screens */
+  margin: 30px auto;    /* Center horizontally with some vertical margin */
+}
+
+.cake svg {
+  width: 100%;          /* SVG fills the container width */
+  height: auto;         /* Keep aspect ratio */
+  display: block;       /* Remove inline spacing */
+}
+
+@media (max-width: 600px) {
+  .cake {
+    margin-top: 15px;
+  }
+}
+
+   
     @keyframes bounce {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-20px); }
